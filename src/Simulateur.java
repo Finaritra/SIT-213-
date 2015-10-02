@@ -42,7 +42,10 @@ import java.util.*;
       private          int nbBitsMess = 100; 
    /** la chaï¿½ne de caractï¿½res correspondant ï¿½ m dans l'argument -mess m */
       private          String messageString = "100";
-   
+      
+     
+  /** forme signal**/
+      private 		   String form ="RZ";
   /** amplitude par défaut **/
       private 		   float min = 0;
       private 		   float max = 1;
@@ -221,6 +224,15 @@ import java.util.*;
             	nombreEchantillon = Integer.parseInt(args[i]);
             	if (nombreEchantillon < 20) 
             		throw new ArgumentsException("Valeur du parametre -nbEch invalide : " + args[i]);
+            	
+            }
+            else if (args[i].matches("-f"))
+            {
+            	i++;
+            	//traiter la valeur associer
+            	form = args[i];
+            	if (form != "RZ" || form != "NRZT"||form != "NRZR" ) 
+            		throw new ArgumentsException("Valeur du parametre -f invalide : " + args[i]);
             	
             }
                                    
